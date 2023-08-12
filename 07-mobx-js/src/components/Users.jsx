@@ -1,22 +1,17 @@
+import { observer } from 'mobx-react';
 import React, { useState } from 'react';
 
-const Users = () => {
+const Users = observer(({ store }) => {
     const [inputValue, setInputValue] = useState('');
-    const [users, setUsers] = useState([]);
 
     const addUser = () => {
-        const newUser = {
-            id: +Math.random().toFixed(4),
-            name: inputValue,
-        };
-
-        setUsers([...users, newUser]);
+        store.addUser(inputValue);
         setInputValue('');
     };
 
     return (
         <React.Fragment>
-            <div>Total: {users.length}</div>
+            <div>Total: {store.total}</div>
             <div>
                 <input
                     type="text"
@@ -26,12 +21,12 @@ const Users = () => {
                 <button onClick={addUser}>Add user</button>
             </div>
             <div>
-                {users.map((user, index) => (
+                {store.users.map((user, index) => (
                     <div key={index}>{user.name}</div>
                 ))}
             </div>
         </React.Fragment>
     );
-};
+});
 
 export default Users;
