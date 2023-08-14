@@ -18,7 +18,10 @@
         "@types/jest": "^27.5.2",
         "@types/node": "^16.18.40",
         "@types/react": "^18.2.20",
-        "@types/react-dom": "^18.2.7"
+        "@types/react-dom": "^18.2.7",
+        "@typescript-eslint/parser": "^5.62.0",
+        "eslint": "^8.47.0",
+        "eslint-plugin-mobx": "^0.0.9"
     },
     "scripts": {
         "start": "react-scripts start",
